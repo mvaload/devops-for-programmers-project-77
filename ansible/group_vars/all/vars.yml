@@ -1,0 +1,11 @@
+vars:
+  pip_package: python3-pip
+  datadog_site: "datadoghq.eu"
+  datadog_checks:
+    http_check:
+      init_config:
+      instances:
+        - name: Application health check status
+          method: GET
+          timeout: 5
+          url: "http://localhost:80"

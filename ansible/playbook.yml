@@ -1,0 +1,42 @@
+- name: Deploy project
+  hosts: all
+  become: true
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  pre_tasks:
+    - name: Add Docker Repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+    - name: Update apt and install docker-ce
+      ansible.builtin.apt: update_cache=yes name=docker-ce state=present
+
+  roles:
+    - geerlingguy.pip
+
+  tasks:
+    - name: Make env
+      ansible.builtin.template:
+        src: templates/env.j2
+        dest: /.env
+        mode: '0644'
+
+    - name: Start app
+      community.docker.docker_container:
+        name: app
+        image: "redmine:5.0.2-bullseye"
+        restart_policy: always
+        state: started
+        env_file: /.env
+        ports:
+          - "80:3000"
+          - "443:3000"
+
+
+- name: Monitoring
+  hosts: webservers
+  roles:
+    - { role: datadog.datadog, become: true }
