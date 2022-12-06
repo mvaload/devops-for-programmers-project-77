@@ -7,6 +7,11 @@
       - name: docker
 
   pre_tasks:
+    - name: Add docker apt key
+      ansible.builtin.apt_key:
+        url: "https://download.docker.com/linux/ubuntu/gpg"
+        state: present
+        
     - name: Add Docker Repository
       ansible.builtin.apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
