@@ -2,13 +2,14 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 
   resources {
-    cores  = 2
-    memory = 2
+    cores  = 4
+    memory = 4
   }
 
   boot_disk {
     initialize_params {
       image_id = "fd81hgrcv6lsnkremf32"
+      size = 15
     }
   }
 
@@ -33,6 +34,7 @@ resource "yandex_compute_instance" "vm-2" {
   boot_disk {
     initialize_params {
       image_id = "fd81hgrcv6lsnkremf32"
+      size = 15
     }
   }
 
