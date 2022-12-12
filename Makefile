@@ -21,3 +21,9 @@ encrypt:
 
 decrypt:
 	ansible-vault decrypt --vault-password-file ansible/vault-password ansible/group_vars/webservers/vault.yml
+
+ping:
+	ansible -i ansible/inventory.ini all -m ping --vault-password-file ansible/vault-password
+
+uptime:
+	ansible -i ansible/inventory.ini all -a "uptime" --vault-password-file ansible/vault-password
