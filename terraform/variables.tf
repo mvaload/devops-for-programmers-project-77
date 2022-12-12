@@ -4,12 +4,12 @@ variable "yc_token" {
 }
 
 variable "yc_id" {
-  type      = string
+  type = string
   sensitive = true
 }
 
 variable "yc_folder_id" {
-  type      = string
+  type = string
   sensitive = true
 }
 
@@ -19,16 +19,16 @@ variable "admin_ssh_key" {
 }
 
 variable "db_name" {
-  type    = string
+  type = string
   default = "redmine"
 }
 
 variable "db_user" {
-  type    = string
+  type = string
   default = "redmine"
 }
 
 variable "db_password" {
-  type      = string
+  type = string
   sensitive = true
 }

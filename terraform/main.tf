@@ -2,7 +2,7 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 
   resources {
-    cores  = 4
+    cores = 4
     memory = 4
   }
 
@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "vm-2" {
   name = "terraform2"
 
   resources {
-    cores  = 4
+    cores = 4
     memory = 4
   }
 
