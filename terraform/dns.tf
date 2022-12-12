@@ -17,7 +17,7 @@ resource "yandex_dns_recordset" "rs2" {
   name    = "maopro.ru."
   type    = "A"
   ttl     = 200
-  data = [yandex_alb_load_balancer.project-balancer.listener[0].endpoint[0].address[0].external_ipv4_address[0].address]
+  data    = [yandex_alb_load_balancer.project-balancer.listener[0].endpoint[0].address[0].external_ipv4_address[0].address]
 }
 
 resource "yandex_dns_recordset" "rs3" {

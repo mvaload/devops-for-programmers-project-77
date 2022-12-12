@@ -36,7 +36,7 @@ resource "yandex_alb_backend_group" "lb-backend-group" {
 
 
 resource "yandex_alb_load_balancer" "project-balancer" {
-  name = "project-load-balancer"
+  name       = "project-load-balancer"
   network_id = yandex_vpc_network.network-1.id
   
   allocation_policy {
@@ -96,7 +96,7 @@ resource "yandex_alb_virtual_host" "lb-virtual-host" {
     http_route {
       http_route_action {
         backend_group_id = yandex_alb_backend_group.lb-backend-group.id
-        timeout = "3s"
+        timeout          = "3s"
       }
     }
   }
