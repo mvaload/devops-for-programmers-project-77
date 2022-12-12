@@ -1,7 +1,7 @@
 resource "yandex_mdb_postgresql_cluster" "project-db" {
   name = "project-yc-db"
   environment = "PRESTABLE"
-  network_id  = yandex_vpc_network.network-1.id
+  network_id = yandex_vpc_network.network-1.id
 
   config {
     version = 12
@@ -34,8 +34,8 @@ resource "yandex_mdb_postgresql_cluster" "project-db" {
 
 resource "yandex_mdb_postgresql_database" "project-db" {
   cluster_id = yandex_mdb_postgresql_cluster.project-db.id
-  name  = var.db_name
-  owner  = yandex_mdb_postgresql_user.redmine.name
+  name = var.db_name
+  owner = yandex_mdb_postgresql_user.redmine.name
   lc_collate = "en_US.UTF-8"
   lc_type = "en_US.UTF-8"
 }

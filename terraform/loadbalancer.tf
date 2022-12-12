@@ -2,12 +2,12 @@ resource "yandex_alb_target_group" "lb_target_group" {
   name = "project-target-group"
 
   target {
-    subnet_id  = yandex_vpc_subnet.subnet-1.id
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     ip_address = yandex_compute_instance.vm-1.network_interface.0.ip_address
   }
 
   target {
-    subnet_id  = yandex_vpc_subnet.subnet-1.id
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     ip_address = yandex_compute_instance.vm-2.network_interface.0.ip_address
   }
 
@@ -25,7 +25,7 @@ resource "yandex_alb_backend_group" "lb-backend-group" {
       panic_threshold = 50
     }
     healthcheck {
-      timeout  = "1s"
+      timeout = "1s"
       interval = "1s"
       http_healthcheck {
         path = "/"
