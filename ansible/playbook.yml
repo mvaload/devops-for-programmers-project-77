@@ -27,7 +27,7 @@
       ansible.builtin.template:
         src: templates/env.j2
         dest: /.env
-        mode: '0644'
+        mode: '0640'
 
     - name: Start app
       community.docker.docker_container:
