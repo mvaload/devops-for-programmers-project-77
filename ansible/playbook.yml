@@ -16,8 +16,12 @@
       ansible.builtin.apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
+
     - name: Update apt and install docker-ce
-      ansible.builtin.apt: update_cache=yes name=docker-ce state=present
+      ansible.builtin.apt:
+        update_cache: yes
+        name: docker-ce
+        state: present
 
   roles:
     - geerlingguy.pip
